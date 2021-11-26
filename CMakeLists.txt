@@ -30,7 +30,7 @@ set(SOURCE_FILES
     ${PLUGINEXAMPLE_SRC_DIR}/MyProjectiveConstraintSet.cpp
     )
 set(README_FILES
-    PluginExample.md
+    README.md
     )
 
 if(Qt5Core_FOUND AND SofaGui_FOUND)
