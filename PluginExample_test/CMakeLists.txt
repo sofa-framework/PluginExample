@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 project(PluginExample_test)
 
 # find_package(PluginExample REQUIRED)
+find_package(Sofa.Testing REQUIRED)
 
 set(SOURCE_FILES
     MyBehaviorModel_test.cpp
