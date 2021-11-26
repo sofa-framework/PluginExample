@@ -80,7 +80,7 @@ jobs:
           fi
           echo "LD_LIBRARY_PATH=$WORKSPACE_ARTIFACT_PATH/lib:$SOFA_ROOT/lib:$LD_LIBRARY_PATH" | tee -a $GITHUB_ENV
           # Add execution right on the tests
-          chmod +x $WORKSPACE_ARTIFACT_PATH/bin/PluginExample_test${{ steps.sofa.outputs.exe }}
+          chmod +x $WORKSPACE_BUILD_PATH/bin/PluginExample_test${{ steps.sofa.outputs.exe }}
       
       - name: Check environment for tests
         shell: bash
@@ -98,7 +98,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          cd $WORKSPACE_ARTIFACT_PATH
+          cd $WORKSPACE_BUILD_PATH
           ./bin/PluginExample_test${{ steps.sofa.outputs.exe }}
 
   deploy:
