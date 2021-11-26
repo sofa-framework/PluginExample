@@ -51,6 +51,7 @@ jobs:
               -DCMAKE_PREFIX_PATH=$SOFA_ROOT/lib/cmake \
               -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_INSTALL_PREFIX="$WORKSPACE_INSTALL_PATH" \
+              ../src
             ninja install
             echo ${CCACHE_BASEDIR}
             ccache -s
@@ -93,7 +94,7 @@ jobs:
           echo '------ ls -la "$WORKSPACE_ARTIFACT_PATH" ------'
           ls -la "$WORKSPACE_ARTIFACT_PATH"
 
-      - name: Run test Binding.Sofa.Tests
+      - name: Run test PluginExample_test
         if: always()
         shell: bash
         run: |
