@@ -25,12 +25,11 @@ set(SOURCE_FILES
     ${PLUGINEXAMPLE_SRC_DIR}/initPluginExample.cpp
     ${PLUGINEXAMPLE_SRC_DIR}/MyBehaviorModel.cpp
     ${PLUGINEXAMPLE_SRC_DIR}/MyVisualModel.cpp
-    ${PLUGINEXAMPLE_SRC_DIR}/MyDataWidgetUnsigned.cpp
     ${PLUGINEXAMPLE_SRC_DIR}/MyMappingPendulumInPlane.cpp
     ${PLUGINEXAMPLE_SRC_DIR}/MyProjectiveConstraintSet.cpp
     )
 set(README_FILES
-    PluginExample.md
+    README.md
     )
 
 if(Qt5Core_FOUND AND SofaGui_FOUND)
