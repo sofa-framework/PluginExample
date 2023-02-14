@@ -24,7 +24,7 @@
 #include <PluginExample/config.h>
 
 #include <sofa/core/BehaviorModel.h>
-#include <SofaBaseVisual/VisualModelImpl.h>
+#include <sofa/component/visual/VisualModelImpl.h>
 
 
 namespace sofa::component::visualmodel
@@ -33,11 +33,11 @@ namespace sofa::component::visualmodel
 /**
  * This VisualModel does not do anything but have a dependency on a module (SofaBaseVisual).
  */
-class SOFA_PLUGINEXAMPLE_API MyVisualModel : public sofa::component::visualmodel::VisualModelImpl
+class SOFA_PLUGINEXAMPLE_API MyVisualModel : public sofa::component::visual::VisualModelImpl
 {
 
 public:
-    SOFA_CLASS(MyVisualModel, sofa::component::visualmodel::VisualModelImpl);
+    SOFA_CLASS(MyVisualModel, sofa::component::visual::VisualModelImpl);
 
 protected:
     MyVisualModel();
