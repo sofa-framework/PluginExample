@@ -37,7 +37,7 @@ class SOFA_PLUGINEXAMPLE_API MyVisualModel : public sofa::component::visual::Vis
 {
 
 public:
-    SOFA_CLASS(MyVisualModel, sofa::component::visualmodel::VisualModelImpl);
+    SOFA_CLASS(MyVisualModel, sofa::component::visual::VisualModelImpl);
 
 protected:
     MyVisualModel();
