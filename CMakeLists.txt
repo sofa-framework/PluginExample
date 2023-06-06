@@ -6,7 +6,6 @@ project(PluginExample VERSION 1.0 LANGUAGES CXX)
 find_package(Sofa.Framework REQUIRED) # Dependency to SofaBaseVisual
 ## Optional dependencies
 find_package(Sofa.GUI.Common QUIET REQUIRED) # Dependency to SofaGuiQt
-find_package(Qt5 COMPONENTS Core) # Dependency to Qt5Core (needed for qt5_wrap_cpp)
 
 # List all files
 set(PLUGINEXAMPLE_SRC_DIR src/PluginExample)
@@ -32,7 +31,9 @@ set(README_FILES
     README.md
     )
 
-if(Qt5Core_FOUND AND Sofa.GUI.Common_FOUND)
+sofa_find_package(Sofa.GUI.Qt QUIET)
+
+if(Sofa.GUI.Common_FOUND AND Sofa.GUI.Qt_FOUND)
     message(STATUS "GUI components have been detected, enable GUI-related components")
     list(APPEND HEADER_FILES_TO_MOC
         ${PLUGINEXAMPLE_SRC_DIR}/MyDataWidgetUnsigned.h
@@ -43,6 +44,7 @@ if(Qt5Core_FOUND AND Sofa.GUI.Common_FOUND)
 
     # [Qt] Create moc code.
     qt5_wrap_cpp(MOCCED_HEADER_FILES ${HEADER_FILES_TO_MOC})
+
 endif()
 
 
@@ -51,11 +53,10 @@ add_library(${PROJECT_NAME} SHARED ${HEADER_FILES_TO_MOC} ${MOCCED_HEADER_FILES}
 
 # Link the plugin library to its dependency(ies).
 target_link_libraries(${PROJECT_NAME} Sofa.Framework Sofa.Component.Visual)
-# Link with the optional GUI dependencies.
 
-sofa_find_package(Sofa.GUI.Qt QUIET)
-if(Sofa.GUI.Qt_FOUND)
-     target_link_libraries(${PROJECT_NAME} Sofa.GUI.Qt)
+if(Sofa.GUI.Common_FOUND AND Sofa.GUI.Qt_FOUND)
+    # Link with the optional GUI dependencies.
+    target_link_libraries(${PROJECT_NAME} Sofa.GUI.Qt)
 endif()
 
 
