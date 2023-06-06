@@ -3,9 +3,9 @@ project(PluginExample VERSION 1.0 LANGUAGES CXX)
 
 # Find and load CMake configuration of packages containing this plugin's dependencies
 ## Mandatory dependencies
-find_package(SofaBase REQUIRED) # Dependency to SofaBaseVisual
+find_package(Sofa.Framework REQUIRED) # Dependency to SofaBaseVisual
 ## Optional dependencies
-sofa_find_package(SofaGui) # Dependency to SofaGuiQt
+sofa_find_package(Sofa.GUI) # Dependency to SofaGuiQt
 sofa_find_package(Qt5 COMPONENTS Core) # Dependency to Qt5Core (needed for qt5_wrap_cpp)
 
 # List all files
@@ -50,10 +50,10 @@ endif()
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES_TO_MOC} ${MOCCED_HEADER_FILES} ${HEADER_FILES} ${SOURCE_FILES} ${README_FILES})
 
 # Link the plugin library to its dependency(ies).
-target_link_libraries(${PROJECT_NAME} SofaBaseVisual)
+target_link_libraries(${PROJECT_NAME} Sofa.Framework Sofa.Component.Visual)
 # Link with the optional GUI dependencies.
 if(Qt5Core_FOUND AND SofaGui_FOUND)
-    target_link_libraries(${PROJECT_NAME} SofaGuiQt)
+    target_link_libraries(${PROJECT_NAME} Sofa.GUI.Qt)
 endif()
 
 # Create package Config, Version & Target files.

@@ -6,11 +6,12 @@
 set(PLUGINEXAMPLE_HAVE_SOFAGUI @PLUGINEXAMPLE_HAVE_SOFAGUI@)
 set(PLUGINEXAMPLE_HAVE_QT5CORE @PLUGINEXAMPLE_HAVE_QT5CORE@)
 
-find_package(SofaBase QUIET REQUIRED)
+find_package(Sofa.Framework QUIET REQUIRED) # Dependency to SofaBaseVisual
 
 if(PLUGINEXAMPLE_HAVE_SOFAGUI)
-    find_package(SofaGui QUIET REQUIRED)
+    find_package(Sofa.GUI QUIET REQUIRED)
 endif()
+
 if(PLUGINEXAMPLE_HAVE_QT5CORE)
     find_package(Qt5 COMPONENTS Core QUIET REQUIRED)
 endif()
