@@ -90,9 +90,7 @@ jobs:
             echo "DYLD_LIBRARY_PATH=$WORKSPACE_ARTIFACT_PATH/lib:$SOFA_ROOT/lib:$DYLD_LIBRARY_PATH" | tee -a $GITHUB_ENV
           fi
           echo "LD_LIBRARY_PATH=$WORKSPACE_ARTIFACT_PATH/lib:$SOFA_ROOT/lib:$LD_LIBRARY_PATH" | tee -a $GITHUB_ENV
-          # Add execution right on the tests
-          chmod +x $WORKSPACE_BUILD_PATH/PluginExample_test/PluginExample_test${{ steps.sofa.outputs.exe }}
-      
+
       - name: Check environment for tests
         shell: bash
         run: |
@@ -109,8 +107,10 @@ jobs:
         if: always()
         shell: bash
         run: |
+          # Add execution right on the tests
+          chmod +x $WORKSPACE_BUILD_PATH/bin/PluginExample_test${{ steps.sofa.outputs.exe }}
           cd $WORKSPACE_BUILD_PATH
-          ./PluginExample_test/PluginExample_test${{ steps.sofa.outputs.exe }}
+          ./bin/PluginExample_test${{ steps.sofa.outputs.exe }}
 
   deploy:
     name: Deploy artifacts
