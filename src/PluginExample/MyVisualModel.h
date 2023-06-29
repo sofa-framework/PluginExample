@@ -27,7 +27,7 @@
 #include <sofa/component/visual/VisualModelImpl.h>
 
 
-namespace sofa::component::visualmodel
+namespace sofa::component::visual
 {
 
 /**
@@ -53,5 +53,5 @@ protected:
 };
 
 
-} // sofa::component::visualmodel
+} // sofa::component::visual
 

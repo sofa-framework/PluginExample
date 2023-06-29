@@ -24,7 +24,7 @@
 #include <sofa/core/ObjectFactory.h>
 
 
-namespace sofa::component::visualmodel
+namespace sofa::component::visual
 {
 
 MyVisualModel::MyVisualModel()
@@ -47,5 +47,5 @@ void MyVisualModel::reinit()
 int MyVisualModelClass = core::RegisterObject("Dummy visual component.").add< MyVisualModel >();
 
 
-} // namespace sofa::component::visualmodel
+} // namespace sofa::component::visual
 
