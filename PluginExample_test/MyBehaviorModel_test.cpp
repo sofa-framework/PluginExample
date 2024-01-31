@@ -68,5 +68,9 @@ TEST_P(MyBehaviorModel_test, dummyTest) {
     dummyTest(param);
 }
 
+INSTANTIATE_TEST_SUITE_P(dummyTest,
+    MyBehaviorModel_test,
+    ::testing::ValuesIn(params));
+
 
 }
