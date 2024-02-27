@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, macos-11, windows-2019]
+        os: [ubuntu-22.04, macos-13, windows-2022]
         sofa_branch: [master]
 
     steps:
@@ -29,7 +29,7 @@ jobs:
       
       - name: Setup SOFA and environment
         id: sofa
-        uses: sofa-framework/sofa-setup-action@v4
+        uses: sofa-framework/sofa-setup-action@v5
         with:
           sofa_scope: 'standard'
           sofa_root: ${{ github.workspace }}/sofa
