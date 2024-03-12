@@ -92,7 +92,7 @@ void MyMappingPendulumInPlane<In, Out>::draw(const core::visual::VisualParams* v
     points.resize(2*out.size());
     for (unsigned int i=0; i<out.size(); i++)
     {
-        points[2*i] =   Vec3(0, 0,0);
+        points[2*i] =   Vec3(0, 0, 0);
         points[2*i+1] = Out::getCPos(out[i]);
     }
     vparams->drawTool()->drawLines (points, 1, type::RGBAColor::green());
