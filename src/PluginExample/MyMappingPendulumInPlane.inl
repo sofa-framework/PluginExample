@@ -38,7 +38,7 @@ namespace sofa::component::mapping
 using helper::ReadAccessor;
 using helper::WriteAccessor;
 using type::Vec;
-using type::Vector3;
+using type::Vec3;
 
 
 template <class In, class Out>
@@ -81,7 +81,7 @@ void MyMappingPendulumInPlane<In, Out>::draw(const core::visual::VisualParams* v
     if (!vparams->displayFlags().getShowMappings()) return;
 
     ReadAccessor<Data<VecOutCoord> > out (*this->toModel->read(core::ConstVecCoordId::position()));
-    std::vector< Vector3 > points(out.size());
+    std::vector< Vec3 > points(out.size());
 
     for (unsigned int i=0; i<out.size(); i++)
     {
@@ -92,7 +92,7 @@ void MyMappingPendulumInPlane<In, Out>::draw(const core::visual::VisualParams* v
     points.resize(2*out.size());
     for (unsigned int i=0; i<out.size(); i++)
     {
-        points[2*i] =   Vector3(0, 0,0);
+        points[2*i] =   Vec3(0, 0, 0);
         points[2*i+1] = Out::getCPos(out[i]);
     }
     vparams->drawTool()->drawLines (points, 1, type::RGBAColor::green());
@@ -194,9 +194,9 @@ void MyMappingPendulumInPlane<In, Out>::applyDJT(const core::MechanicalParams* m
                                                 core::MultiVecDerivId parentForceChangeId,
                                                 core::ConstMultiVecDerivId)
 {
-    ReadAccessor<Data<VecOutDeriv> > childForce (*mparams->readF(this->toModel));
+    ReadAccessor<Data<VecOutDeriv> > childForce (*mparams->readF(this->toModel.get()));
     WriteAccessor<Data<VecInDeriv> > parentForce (*parentForceChangeId[this->fromModel.get()].write());
-    ReadAccessor<Data<VecInDeriv> > parentDx (*mparams->readDx(this->fromModel));
+    ReadAccessor<Data<VecInDeriv> > parentDx (*mparams->readDx(this->fromModel.get()));
     InReal kfactor = (InReal)mparams->kFactor();
 
     for(unsigned i=0; i<parentForce.size(); i++)
