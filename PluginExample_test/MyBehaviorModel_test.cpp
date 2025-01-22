@@ -37,12 +37,12 @@ class MyBehaviorModel_test : public BaseTest,
 public:
     using MyBehaviorModel = sofa::component::behaviormodel::MyBehaviorModel;
 
-    void TearDown()
+    void doTearDown() override
     {
 
     }
 
-    void SetUp()
+    void doSetUp() override
     {
         m_behaviorModel = sofa::core::objectmodel::New< MyBehaviorModel >();
     }
