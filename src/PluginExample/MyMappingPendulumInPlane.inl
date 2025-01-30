@@ -57,8 +57,8 @@ MyMappingPendulumInPlane<In, Out>::~MyMappingPendulumInPlane()
 template <class In, class Out>
 void MyMappingPendulumInPlane<In, Out>::init()
 {
-    ReadAccessor<Data<VecOutCoord> > out (*this->toModel->read(core::ConstVecCoordId::position()));
-    WriteAccessor<Data<VecInCoord> > in (*this->fromModel->write(core::VecCoordId::position()));
+    ReadAccessor<Data<VecOutCoord> > out (*this->toModel->read(core::vec_id::read_access::position));
+    WriteAccessor<Data<VecInCoord> > in (*this->fromModel->write(core::vec_id::write_access::position));
     WriteAccessor<Data<vector<OutReal> > > distances (d_length);
     if (distances.size() != out.size()) // values not read from file
     {
@@ -80,7 +80,7 @@ void MyMappingPendulumInPlane<In, Out>::draw(const core::visual::VisualParams* v
 {
     if (!vparams->displayFlags().getShowMappings()) return;
 
-    ReadAccessor<Data<VecOutCoord> > out (*this->toModel->read(core::ConstVecCoordId::position()));
+    ReadAccessor<Data<VecOutCoord> > out (*this->toModel->read(core::vec_id::read_access::position));
     std::vector< Vec3 > points(out.size());
 
     for (unsigned int i=0; i<out.size(); i++)
