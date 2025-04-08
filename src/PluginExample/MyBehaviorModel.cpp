@@ -52,8 +52,11 @@ void MyBehaviorModel::updatePosition(double dt)
     SOFA_UNUSED(dt);
 }
 
-int MyBehaviorModelClass = core::RegisterObject("Dummy component with a custom widget.").add< MyBehaviorModel >();
-
+void registerMyBehaviorModel(sofa::core::ObjectFactory* factory)
+{
+    factory->registerObjects(core::ObjectRegistrationData("Dummy component with a custom widget.")
+    .add< MyBehaviorModel >());
+}
 
 } // namespace sofa::component::behaviormodel
 

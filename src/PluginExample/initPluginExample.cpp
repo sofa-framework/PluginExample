@@ -23,6 +23,24 @@
 
 #include <sofa/core/ObjectFactory.h>
 using sofa::core::ObjectFactory;
+#include <sofa/helper/system/PluginManager.h>
+
+namespace sofa::component::behaviormodel
+{
+    extern void registerMyBehaviorModel(sofa::core::ObjectFactory* factory);
+}
+namespace sofa::component::mapping
+{
+    extern void registerMyMappingPendulumInPlane(sofa::core::ObjectFactory* factory);
+}
+namespace sofa::component::projectiveconstraintset
+{
+    extern void registerMyProjectiveConstraintSet(sofa::core::ObjectFactory* factory);
+}
+namespace sofa::component::visual
+{
+    extern void registerMyVisualModel(sofa::core::ObjectFactory* factory);
+}
 
 extern "C" {
     SOFA_PLUGINEXAMPLE_API void initExternalModule();
@@ -31,6 +49,7 @@ extern "C" {
     SOFA_PLUGINEXAMPLE_API const char* getModuleLicense();
     SOFA_PLUGINEXAMPLE_API const char* getModuleDescription();
     SOFA_PLUGINEXAMPLE_API const char* getModuleComponentList();
+    SOFA_PLUGINEXAMPLE_API void registerObjects(sofa::core::ObjectFactory* factory);
 }
 
 void initExternalModule()
@@ -39,6 +58,9 @@ void initExternalModule()
     if (first)
     {
         first = false;
+
+        // make sure that this plugin is registered into the PluginManager
+        sofa::helper::system::PluginManager::getInstance().registerPlugin(sofa_tostring(SOFA_TARGET));
     }
 }
 
@@ -69,3 +91,10 @@ const char* getModuleComponentList()
     return classes.c_str();
 }
 
+void registerObjects(sofa::core::ObjectFactory* factory)
+{
+    sofa::component::behaviormodel::registerMyBehaviorModel(factory);
+    sofa::component::mapping::registerMyMappingPendulumInPlane(factory);
+    sofa::component::projectiveconstraintset::registerMyProjectiveConstraintSet(factory);
+    sofa::component::visual::registerMyVisualModel(factory);
+}
