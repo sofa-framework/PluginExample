@@ -48,7 +48,6 @@ extern "C" {
     SOFA_PLUGINEXAMPLE_API const char* getModuleVersion();
     SOFA_PLUGINEXAMPLE_API const char* getModuleLicense();
     SOFA_PLUGINEXAMPLE_API const char* getModuleDescription();
-    SOFA_PLUGINEXAMPLE_API const char* getModuleComponentList();
     SOFA_PLUGINEXAMPLE_API void registerObjects(sofa::core::ObjectFactory* factory);
 }
 
@@ -84,13 +83,6 @@ const char* getModuleDescription()
     return "Simple example of a Sofa plugin.";
 }
 
-const char* getModuleComponentList()
-{
-    /// string containing the names of the classes provided by the plugin
-    static std::string classes = ObjectFactory::getInstance()->listClassesFromTarget(sofa_tostring(SOFA_TARGET));
-    return classes.c_str();
-}
-
 void registerObjects(sofa::core::ObjectFactory* factory)
 {
     sofa::component::behaviormodel::registerMyBehaviorModel(factory);
@@ -98,3 +90,4 @@ void registerObjects(sofa::core::ObjectFactory* factory)
     sofa::component::projectiveconstraintset::registerMyProjectiveConstraintSet(factory);
     sofa::component::visual::registerMyVisualModel(factory);
 }
+
