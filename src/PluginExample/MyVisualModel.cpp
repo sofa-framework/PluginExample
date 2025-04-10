@@ -44,8 +44,11 @@ void MyVisualModel::reinit()
 {
 }
 
-int MyVisualModelClass = core::RegisterObject("Dummy visual component.").add< MyVisualModel >();
-
+void registerMyVisualModel(sofa::core::ObjectFactory* factory)
+{
+    factory->registerObjects(core::ObjectRegistrationData("Dummy visual component.")
+    .add< MyVisualModel >());
+}
 
 } // namespace sofa::component::visual
 
