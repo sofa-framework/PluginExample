@@ -27,7 +27,7 @@
 #include <sofa/defaulttype/VecTypes.h>
 
 
-namespace sofa::component::mapping
+namespace pluginexample
 {
 
 using namespace sofa::defaulttype;
@@ -44,5 +44,4 @@ template class SOFA_PLUGINEXAMPLE_API MyMappingPendulumInPlane<Vec1Types, Vec2Ty
 
 
 
-} // namespace sofa::component::mapping
-
+} // namespace pluginexample

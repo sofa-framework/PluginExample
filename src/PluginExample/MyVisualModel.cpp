@@ -24,7 +24,7 @@
 #include <sofa/core/ObjectFactory.h>
 
 
-namespace sofa::component::visual
+namespace pluginexample
 {
 
 MyVisualModel::MyVisualModel()
@@ -50,5 +50,5 @@ void registerMyVisualModel(sofa::core::ObjectFactory* factory)
     .add< MyVisualModel >());
 }
 
-} // namespace sofa::component::visual
+} // namespace pluginexample
 

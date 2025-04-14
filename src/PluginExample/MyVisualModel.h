@@ -27,7 +27,7 @@
 #include <sofa/component/visual/VisualModelImpl.h>
 
 
-namespace sofa::component::visual
+namespace pluginexample
 {
 
 /**
@@ -53,5 +53,5 @@ protected:
 };
 
 
-} // sofa::component::visual
+} // namespace pluginexample
 

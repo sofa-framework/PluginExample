@@ -28,7 +28,7 @@
 #include <sofa/defaulttype/VecTypes.h>
 
 
-namespace sofa::component::projectiveconstraintset
+namespace pluginexample
 {
 
 template <class DataTypes>

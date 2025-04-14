@@ -32,7 +32,7 @@ using std::cerr;
 using std::endl;
 
 
-namespace sofa::component::mapping
+namespace pluginexample
 {
 
 using helper::ReadAccessor;
@@ -206,4 +206,4 @@ void MyMappingPendulumInPlane<In, Out>::applyDJT(const core::MechanicalParams* m
 }
 
 
-}	// namespace sofa::component::mapping 
+}	// namespace pluginexample 

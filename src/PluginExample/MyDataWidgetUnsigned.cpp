@@ -24,7 +24,7 @@
 #include <sofa/helper/Factory.h>
 
 
-namespace sofa::gui::qt
+namespace pluginexample
 {
 
 /*
@@ -112,4 +112,4 @@ void MyDataWidgetUnsigned::change()
 }
 
 
-} // namespace sofa::gui::qt
+} // namespace pluginexample

@@ -24,7 +24,7 @@
 #include <sofa/core/ObjectFactory.h>
 
 
-namespace sofa::component::behaviormodel
+namespace pluginexample
 {
 
 MyBehaviorModel::MyBehaviorModel()
@@ -58,5 +58,5 @@ void registerMyBehaviorModel(sofa::core::ObjectFactory* factory)
     .add< MyBehaviorModel >());
 }
 
-} // namespace sofa::component::behaviormodel
+} // namespace pluginexample
 

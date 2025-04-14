@@ -24,9 +24,9 @@
 #include <sofa/core/ObjectFactory.h>
 
 
-namespace sofa::component::projectiveconstraintset
+namespace pluginexample
 {
-
+    
 using namespace sofa::defaulttype;
 
 void registerMyProjectiveConstraintSet(sofa::core::ObjectFactory* factory)
@@ -42,4 +42,4 @@ template class SOFA_PLUGINEXAMPLE_API MyProjectiveConstraintSet<Vec3Types>;
 
 
 
-} // namespace sofa::component::projectiveconstraintset
+} // namespace pluginexample
