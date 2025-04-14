@@ -50,18 +50,18 @@ namespace pluginexample
             first = false;
 
             // make sure that this plugin is registered into the PluginManager
-            sofa::helper::system::PluginManager::getInstance().registerPlugin(sofa_tostring(SOFA_TARGET));
+            sofa::helper::system::PluginManager::getInstance().registerPlugin(MODULE_NAME);
         }
     }
 
     const char* getModuleName()
     {
-        return sofa_tostring(SOFA_TARGET);
+        return MODULE_NAME;
     }
 
     const char* getModuleVersion()
     {
-        return sofa_tostring(PLUGINEXAMPLE_VERSION);
+        return MODULE_VERSION;
     }
 
     const char* getModuleLicense()
