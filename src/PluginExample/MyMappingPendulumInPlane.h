@@ -28,7 +28,7 @@
 #include <sofa/helper/OptionsGroup.h>
 
 
-namespace sofa::component::mapping
+namespace pluginexample
 {
 
 using type::vector;
@@ -84,5 +84,5 @@ protected:
     vector<Vec2> gap;
 };
 
-} // namespace sofa::component::mapping
+} // namespace pluginexample
 

@@ -24,7 +24,7 @@
 #include <PluginExample/MyProjectiveConstraintSet.h>
 
 
-namespace sofa::component::projectiveconstraintset
+namespace pluginexample
 {
 
 template <class DataTypes>
@@ -52,4 +52,4 @@ void MyProjectiveConstraintSet<DataTypes>::reinit()
 
 
 
-} // namespace sofa::component::projectiveconstraintset
+} // namespace pluginexample
