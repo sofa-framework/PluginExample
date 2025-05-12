@@ -47,7 +47,7 @@ void MyBehaviorModel::reinit()
 {
 }
 
-void MyBehaviorModel::updatePosition(double dt)
+void MyBehaviorModel::doUpdatePosition(double dt)
 {
     SOFA_UNUSED(dt);
 }
