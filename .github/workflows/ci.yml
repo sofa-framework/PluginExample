@@ -41,7 +41,7 @@ jobs:
           path: ${{ env.WORKSPACE_SRC_PATH }}        
       
       - name: Build and install
-        id: build-and-tests
+        id: build-and-install
         shell: bash
         run: |
           if [[ "$RUNNER_OS" == "Windows" ]]; then
@@ -126,7 +126,7 @@ jobs:
           test_status=$([ '${{ steps.unit-tests.outcome }}' == 'success' ] && \
                         echo 'true' || echo 'false')
 
-          build_status=$([ '${{ steps.build-and-tests.outcome }}' == 'success' ] && \
+          build_status=$([ '${{ steps.build-and-install.outcome }}' == 'success' ] && \
                          echo 'true' || echo 'false')
 
           binary_status=$([ '${{ steps.create-artifact.outcome }}' == 'success' ] && \
