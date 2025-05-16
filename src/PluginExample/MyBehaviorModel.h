@@ -26,7 +26,7 @@
 #include <sofa/core/BehaviorModel.h>
 
 
-namespace sofa::component::behaviormodel
+namespace pluginexample
 {
 
 /**
@@ -52,5 +52,5 @@ public:
 };
 
 
-} // sofa::component::behaviormodel
+} // namespace pluginexample
 

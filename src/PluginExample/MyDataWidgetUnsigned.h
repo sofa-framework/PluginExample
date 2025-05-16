@@ -31,7 +31,7 @@
 #include <QString>
 
 
-namespace sofa::gui::qt
+namespace pluginexample
 {
 
 /**
@@ -65,4 +65,4 @@ protected:
 };
 
 
-} // namespace sofa::gui::qt
+} // namespace pluginexample

@@ -23,49 +23,63 @@
 
 #include <sofa/core/ObjectFactory.h>
 using sofa::core::ObjectFactory;
+#include <sofa/helper/system/PluginManager.h>
 
-extern "C" {
-    SOFA_PLUGINEXAMPLE_API void initExternalModule();
-    SOFA_PLUGINEXAMPLE_API const char* getModuleName();
-    SOFA_PLUGINEXAMPLE_API const char* getModuleVersion();
-    SOFA_PLUGINEXAMPLE_API const char* getModuleLicense();
-    SOFA_PLUGINEXAMPLE_API const char* getModuleDescription();
-    SOFA_PLUGINEXAMPLE_API const char* getModuleComponentList();
-}
-
-void initExternalModule()
+namespace pluginexample
 {
-    static bool first = true;
-    if (first)
-    {
-        first = false;
+    extern void registerMyBehaviorModel(sofa::core::ObjectFactory* factory);
+    extern void registerMyMappingPendulumInPlane(sofa::core::ObjectFactory* factory);
+    extern void registerMyProjectiveConstraintSet(sofa::core::ObjectFactory* factory);
+    extern void registerMyVisualModel(sofa::core::ObjectFactory* factory);
+
+
+    extern "C" {
+        SOFA_PLUGINEXAMPLE_API void initExternalModule();
+        SOFA_PLUGINEXAMPLE_API const char* getModuleName();
+        SOFA_PLUGINEXAMPLE_API const char* getModuleVersion();
+        SOFA_PLUGINEXAMPLE_API const char* getModuleLicense();
+        SOFA_PLUGINEXAMPLE_API const char* getModuleDescription();
+        SOFA_PLUGINEXAMPLE_API void registerObjects(sofa::core::ObjectFactory* factory);
     }
-}
 
-const char* getModuleName()
-{
-    return sofa_tostring(SOFA_TARGET);
-}
+    void initExternalModule()
+    {
+        static bool first = true;
+        if (first)
+        {
+            first = false;
 
-const char* getModuleVersion()
-{
-    return sofa_tostring(PLUGINEXAMPLE_VERSION);
-}
+            // make sure that this plugin is registered into the PluginManager
+            sofa::helper::system::PluginManager::getInstance().registerPlugin(MODULE_NAME);
+        }
+    }
 
-const char* getModuleLicense()
-{
-    return "LGPL";
-}
+    const char* getModuleName()
+    {
+        return MODULE_NAME;
+    }
 
-const char* getModuleDescription()
-{
-    return "Simple example of a Sofa plugin.";
-}
+    const char* getModuleVersion()
+    {
+        return MODULE_VERSION;
+    }
 
-const char* getModuleComponentList()
-{
-    /// string containing the names of the classes provided by the plugin
-    static std::string classes = ObjectFactory::getInstance()->listClassesFromTarget(sofa_tostring(SOFA_TARGET));
-    return classes.c_str();
-}
+    const char* getModuleLicense()
+    {
+        return "LGPL";
+    }
 
+    const char* getModuleDescription()
+    {
+        return "Simple example of a Sofa plugin.";
+    }
+
+    void registerObjects(sofa::core::ObjectFactory* factory)
+    {
+        registerMyBehaviorModel(factory);
+        registerMyMappingPendulumInPlane(factory);
+        registerMyProjectiveConstraintSet(factory);
+        registerMyVisualModel(factory);
+    }
+
+}

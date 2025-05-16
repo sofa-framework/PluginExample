@@ -27,21 +27,21 @@
 #include <sofa/defaulttype/VecTypes.h>
 
 
-namespace sofa::component::mapping
+namespace pluginexample
 {
 
 using namespace sofa::defaulttype;
 
-
-int MyMappingPendulumInPlaneClass = core::RegisterObject("Mapping from an angle to a point in 2D")
+void registerMyMappingPendulumInPlane(sofa::core::ObjectFactory* factory)
+{
+    factory->registerObjects(core::ObjectRegistrationData("Mapping from an angle to a point in 2D.")
     .add< MyMappingPendulumInPlane<Vec1Types, Vec3Types> >()
-    .add< MyMappingPendulumInPlane<Vec1Types, Vec2Types> >()
-;
+    .add< MyMappingPendulumInPlane<Vec1Types, Vec2Types> >());
+}
 
 template class SOFA_PLUGINEXAMPLE_API MyMappingPendulumInPlane<Vec1Types, Vec3Types>;
 template class SOFA_PLUGINEXAMPLE_API MyMappingPendulumInPlane<Vec1Types, Vec2Types>;
 
 
 
-} // namespace sofa::component::mapping
-
+} // namespace pluginexample

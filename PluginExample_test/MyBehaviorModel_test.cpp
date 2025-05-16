@@ -26,8 +26,9 @@ using std::vector;
 
 #include <sofa/testing/BaseTest.h>
 using sofa::testing::BaseTest;
-
 using ::testing::Types;
+
+using namespace pluginexample;
 
 namespace {
 
@@ -35,14 +36,14 @@ class MyBehaviorModel_test : public BaseTest,
                              public ::testing::WithParamInterface<unsigned>
 {
 public:
-    using MyBehaviorModel = sofa::component::behaviormodel::MyBehaviorModel;
+    using MyBehaviorModel = pluginexample::MyBehaviorModel;
 
-    void TearDown()
+    void doTearDown() override
     {
 
     }
 
-    void SetUp()
+    void doSetUp() override
     {
         m_behaviorModel = sofa::core::objectmodel::New< MyBehaviorModel >();
     }

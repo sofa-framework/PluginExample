@@ -24,21 +24,22 @@
 #include <sofa/core/ObjectFactory.h>
 
 
-namespace sofa::component::projectiveconstraintset
+namespace pluginexample
 {
-
+    
 using namespace sofa::defaulttype;
 
-
-int MyProjectiveConstraintSetClass = core::RegisterObject("just an example of templated component")
+void registerMyProjectiveConstraintSet(sofa::core::ObjectFactory* factory)
+{
+    factory->registerObjects(core::ObjectRegistrationData("Just an example of templated component.")
     .add< MyProjectiveConstraintSet<Vec3Types> >()
     .add< MyProjectiveConstraintSet<Vec1Types> >()
-    .add< MyProjectiveConstraintSet<Rigid3Types> >()
-;
+    .add< MyProjectiveConstraintSet<Rigid3Types> >());
+}
 
 template class SOFA_PLUGINEXAMPLE_API MyProjectiveConstraintSet<Rigid3Types>;
 template class SOFA_PLUGINEXAMPLE_API MyProjectiveConstraintSet<Vec3Types>;
 
 
 
-} // namespace sofa::component::projectiveconstraintset
+} // namespace pluginexample

@@ -6,8 +6,8 @@ project(PluginExample VERSION 1.0 LANGUAGES CXX)
 find_package(Sofa.Component.Visual REQUIRED) # Needed for VisualModelImpl
 
 ## Optional dependencies
-sofa_find_package(Sofa.GUI.Qt)
-sofa_find_package(Qt5 COMPONENTS Core) # Dependency to Qt5Core (needed for qt5_wrap_cpp)
+sofa_find_package(Sofa.GUI.Qt QUIET)
+sofa_find_package(Qt5 COMPONENTS Core QUIET) # Dependency to Qt5Core (needed for qt5_wrap_cpp)
 
 # List all files
 set(PLUGINEXAMPLE_SRC_DIR src/PluginExample)

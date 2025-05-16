@@ -23,6 +23,9 @@
 
 #include <sofa/config.h>
 
+// adding SOFA namespace to ease using SOFA classes within the plugin
+using namespace sofa;
+
 #define PLUGINEXAMPLE_VERSION @PROJECT_VERSION@
 
 #ifdef SOFA_BUILD_PLUGINEXAMPLE
@@ -32,3 +35,8 @@
 #  define SOFA_PLUGINEXAMPLE_API SOFA_IMPORT_DYNAMIC_LIBRARY
 #endif
 
+namespace pluginexample
+{
+    constexpr const char* MODULE_NAME = "@PROJECT_NAME@";
+    constexpr const char* MODULE_VERSION = "@PROJECT_VERSION@";
+} // namespace pluginexample
