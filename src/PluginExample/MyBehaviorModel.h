@@ -45,7 +45,7 @@ protected:
 public:
     void init() override;
     void reinit() override;
-    void updatePosition(double dt) override;
+    void doUpdatePosition(double dt) override;
 
     Data<unsigned> d_customUnsignedData; ///< Example of unsigned data with custom widget
     Data<unsigned> d_regularUnsignedData; ///< Example of unsigned data with standard widget
