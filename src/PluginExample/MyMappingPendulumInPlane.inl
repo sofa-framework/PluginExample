@@ -190,7 +190,7 @@ void MyMappingPendulumInPlane<In, Out>::applyJT(const core::ConstraintParams* cp
 }
 
 template <class In, class Out>
-void MyMappingPendulumInPlane<In, Out>::applyDJT(const core::MechanicalParams* mparams,
+void MyMappingPendulumInPlane<In, Out>::doApplyDJT(const core::MechanicalParams* mparams,
                                                 core::MultiVecDerivId parentForceChangeId,
                                                 core::ConstMultiVecDerivId)
 {
