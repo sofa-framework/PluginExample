@@ -111,7 +111,7 @@ jobs:
           build_dir: ${{ env.WORKSPACE_BUILD_PATH }}
           python_exe: ${{ steps.sofa.outputs.python_exe }}
           output_dir: ${{ github.workspace }}/tests-results_dir
-          nb_parallel_threads: '4'}
+          nb_parallel_threads: '4'
 
       - name: Notify dashboard
         if: always() && startsWith(github.repository, 'sofa-framework') && startsWith(github.ref, 'refs/heads/master') # we are not on a fork and on master
