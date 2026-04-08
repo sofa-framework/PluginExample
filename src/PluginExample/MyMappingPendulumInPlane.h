@@ -77,9 +77,10 @@ public:
     virtual void applyJ(const core::MechanicalParams* mparams, OutDataVecDeriv& out, const InDataVecDeriv& in) override;
     virtual void applyJT(const core::MechanicalParams* mparams, InDataVecDeriv& out, const OutDataVecDeriv& in) override;
     virtual void applyJT(const core::ConstraintParams* mparams, InDataMatrixDeriv& out, const OutDataMatrixDeriv& in) override;
-    virtual void applyDJT(const core::MechanicalParams* mparams, core::MultiVecDerivId parentForceChange, core::ConstMultiVecDerivId) override;
 
 protected:
+    virtual void doApplyDJT(const core::MechanicalParams* mparams, core::MultiVecDerivId parentForceChange, core::ConstMultiVecDerivId) override;
+
     typedef Vec<2, OutReal> Vec2;
     vector<Vec2> gap;
 };
