@@ -85,7 +85,7 @@ void MyMappingPendulumInPlane<In, Out>::draw(const core::visual::VisualParams* v
 
     for (unsigned int i=0; i<out.size(); i++)
     {
-        points[i] = Out::getCPos(out[i]);
+        points[i].set(Out::getCPos(out[i]));
     }
     vparams->drawTool()->drawPoints (points, 7, type::RGBAColor::yellow());
 
@@ -93,7 +93,7 @@ void MyMappingPendulumInPlane<In, Out>::draw(const core::visual::VisualParams* v
     for (unsigned int i=0; i<out.size(); i++)
     {
         points[2*i] =   Vec3(0, 0, 0);
-        points[2*i+1] = Out::getCPos(out[i]);
+        points[2*i+1].set(Out::getCPos(out[i]));
     }
     vparams->drawTool()->drawLines (points, 1, type::RGBAColor::green());
 
